@@ -1,0 +1,7 @@
+.panorama-viewer {
+    display: block;
+    float: left;
+    width: 100%;
+    height: auto;
+    cursor: move;
+}

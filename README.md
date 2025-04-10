@@ -1,0 +1,3 @@
+# Panorama Viewer 
+
+The Panorama Viewer add-on for Concrete CMS provides a dynamic 3D viewer block that allows you to display equirectangular images (360° x 180°) in an interactive format. By uploading a compatible panoramic image, site visitors can navigate through the image using their mouse, offering an immersive experience. This add-on is perfect for virtual tours, especially on real estate websites, where showcasing properties in full 360-degree views can make a significant impact. Fully responsive and simple to implement, the Panorama Viewer adds a modern, engaging feature to any website that requires interactive and immersive imagery.
