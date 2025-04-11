@@ -9,7 +9,7 @@ use Concrete\Core\Package\Package;
 class Controller extends Package
 {
     protected string $pkgHandle = 'panorama_viewer';
-    protected string $pkgVersion = '1.0.4';
+    protected string $pkgVersion = '0.0.1';
     protected $appVersionRequired = '9.0.0';
     protected $pkgAutoloaderRegistries = [
         'src/Bitter/PanoramaViewer' => 'Bitter\PanoramaViewer',
