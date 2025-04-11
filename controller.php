@@ -22,7 +22,7 @@ class Controller extends Package
 
     public function getPackageName(): string
     {
-        return t('Panorama Viewer ');
+        return t('Panorama Viewer');
     }
 
     public function on_start()

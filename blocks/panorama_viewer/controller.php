@@ -4,13 +4,12 @@
 namespace Concrete\Package\PanoramaViewer\Block\PanoramaViewer;
 
 use Concrete\Core\Block\BlockController;
-use File;
 
-class Controller extends BlockController {
-    protected $btExportFileColumns = array(
+class Controller extends BlockController
+{
+    protected $btExportFileColumns = [
         'fID'
-    );
-
+    ];
     protected $btTable = 'btPanoramaViewer';
     protected $btDefaultSet = "multimedia";
     protected $btCacheBlockRecord = true;
@@ -19,29 +18,22 @@ class Controller extends BlockController {
     protected $btCacheBlockOutputOnPost = true;
     protected $btCacheBlockOutputForRegisteredUsers = true;
 
-    public function getBlockTypeDescription() {
+    public function getBlockTypeDescription(): string
+    {
         return t("Panorama Viewer Block Element.");
     }
 
-    public function getBlockTypeName() {
+    public function getBlockTypeName(): string
+    {
         return t("Panorama Viewer");
     }
 
-    private function getSelectedFile() {
-        if ($this->fID > 0) {
-            $fileObject = File::getById($this->fID);
+    public function registerViewAssets($outputContent = '')
+    {
+        parent::registerViewAssets($outputContent);
 
-            return $fileObject->getRelativePath();
-        }
-
-        return false;
-    }
-
-    public function view() {
         $this->requireAsset("javascript", "jquery");
         $this->requireAsset("javascript", "threejs");
         $this->requireAsset("javascript", "panorama-viewer");
-
-        $this->set("selectedFile", $this->getSelectedFile());
     }
 }

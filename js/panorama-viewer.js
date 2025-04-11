@@ -1,16 +1,8 @@
-/**
- * Project:     Panorama Viewer
- *
- * @copyright 2016 Fabian Bitter
- * @author Fabian Bitter (fabian@bitter.de)
- * @version 1.0
- */
-
 (function ($) {
     $.fn.panoramaView = function (items) {
         this.each(function () {
-            var canvas = document.createElement("canvas");
-            var gl = null;
+            let canvas = document.createElement("canvas");
+            let gl = null;
 
             try {
                 gl = canvas.getContext("webgl");
@@ -21,9 +13,7 @@
             if (gl === null) {
                 try {
                     gl = canvas.getContext("experimental-webgl");
-                    experimental = true;
-                }
-                catch (x) {
+                } catch (x) {
                     gl = null;
                 }
             }
@@ -35,16 +25,16 @@
                     $(this).data("onPointerDownPointerX", 0);
                     $(this).data("onPointerDownPointerY", 0);
                     $(this).data("isUserInteracting", false);
-                    
+
                     $(this).data("camera", new THREE.PerspectiveCamera(75, 16 / 9, 1, 1100));
                     $(this).data("camera").target = new THREE.Vector3(0, 0, 0);
                     $(this).data("scene", new THREE.Scene());
 
-                    var geometry = new THREE.SphereGeometry(500, 60, 40);
+                    let geometry = new THREE.SphereGeometry(500, 60, 40);
 
                     geometry.scale(-1, 1, 1);
-                    
-                    var material = new THREE.MeshBasicMaterial({
+
+                    let material = new THREE.MeshBasicMaterial({
                         map: new THREE.TextureLoader().load($(this).data("panorama-picture"))
                     });
 
@@ -71,7 +61,7 @@
                         }
                     });
 
-                    $(this).bind('mouseup', function (event) {
+                    $(this).bind('mouseup', function () {
                         $(this).data("isUserInteracting", false);
                     });
 
@@ -81,8 +71,8 @@
                 $(this).html("<div class=\"well\">" + $(this).data("alternative-message") + "</div>");
             }
         });
-        
-        var myRenderFunc = function() {
+
+        let myRenderFunc = function () {
             requestAnimationFrame(myRenderFunc);
 
             $(".panorama-viewer").each(function () {
@@ -100,9 +90,9 @@
                 $(this).data("renderer").render($(this).data("scene"), $(this).data("camera"));
             });
         };
-    
+
         myRenderFunc();
-        
+
         $(window).resize(function () {
             $(".panorama-viewer").each(function () {
                 if ($(this).data("processed")) {
