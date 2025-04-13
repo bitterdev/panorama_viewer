@@ -1,0 +1,5 @@
+{
+  "name": "bitter/panorama_viewer",
+  "type": "concrete5-package",
+  "description": "Display 360-degree panoramic images with interactive navigation using a 3D viewer."
+}
